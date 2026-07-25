@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg,#0F172A,#1E3A8A,#3B82F6);
+}
+
+h1 {
+    color: white;
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+.popurl {
+    width: 90%;
+    max-width: 700px;
+
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+}
+
+.pswd{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#input,#aliasInput,
+#passwordInput {
+
+    width: 100%;
+    height: 52px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 2px solid rgba(255,255,255,.15);
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 16px;
+
+    padding: 0 18px;
+
+    transition: .3s;
+}
+
+
+#input::placeholder, #aliasInput::placeholder,
+#passwordInput::placeholder{
+    color:#CBD5E1;
+}
+
+#input:focus,
+#passwordInput:focus{
+
+    outline:none;
+
+    border-color:#60A5FA;
+
+    box-shadow:0 0 18px rgba(96,165,250,.35);
+}
+
+.btn,
+#unlockBtn{
+
+    width:220px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#3B82F6,#8B5CF6);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 12px 30px rgba(59,130,246,.35);
+}
+
+.btn:hover,
+#unlockBtn:hover{
+
+    cursor:pointer;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 35px rgba(59,130,246,.45);
+}
+
+.result-box{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.short-link{
+
+    width:100%;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.08);
+
+    color:#F8FAFC;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.3s;
+}
+
+.short-link:hover{
+
+    background:#2563EB;
+}
+
+.qr-code{
+
+    width:200px;
+
+    height:200px;
+
+    padding:12px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+#errorMessage{
+
+    color:#F87171;
+
+    font-weight:600;
+
+    font-size:15px;
+}
+
+.click-count{
+
+    color:white;
+
+    font-size:18px;
+}
+
+/* ================= PASSWORD PAGE ================= */
+
+.password-page{
+    background: linear-gradient(135deg,#0B1120,#172554,#1E3A8A) !important;
+}
+
+.password-page h2{
+    color:#fff;
+    font-size:2.3rem;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.password-page p{
+    color:#CBD5E1;
+    font-size:16px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.password-page #passwordInput{
+    width:340px;
+    max-width:90%;
+    height:52px;
+    margin-bottom:20px;
+    background:rgba(255,255,255,.12);
+    border:2px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    color:#fff;
+    padding:0 18px;
+    font-size:16px;
+}
+
+.password-page #passwordInput::placeholder{
+    color:#CBD5E1;
+}
+
+.password-page #passwordInput:focus{
+    outline:none;
+    border-color:#60A5FA;
+    box-shadow:0 0 18px rgba(96,165,250,.35);
+}
+
+.password-page #unlockBtn{
+    width:180px;
+    height:50px;
+    border:none;
+    border-radius:14px;
+    background:#ffffff;
+    color:#1E3A8A;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.password-page #unlockBtn:hover{
+    background:#F3F4F6;
+    transform:translateY(-2px);
+}
+
+.password-page #errorMessage{
+    min-height:20px;
+    margin-top:20px;
+    color:#F87171;
+    font-weight:600;
+    text-align:center;
+}
