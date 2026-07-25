@@ -16,7 +16,7 @@ button.addEventListener("click", () => {
         body: JSON.stringify({
             url: input.value,
             customAlias: aliasInput.value.trim(),
-            password: passwordInput.value
+            password: passwordInput.value.trim()
         })
     })
         .then(async (res) => {
@@ -52,4 +52,12 @@ button.addEventListener("click", () => {
             alert(err.message);
 
         });
+});
+
+[input, aliasInput, passwordInput].forEach(element => {
+    element.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            button.click();
+        }
+    });
 });

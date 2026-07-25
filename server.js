@@ -3,21 +3,11 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const QRCode = require("qrcode");
 const bcrypt = require("bcrypt");
-const dns = require("node:dns");
-const { error } = require("node:console");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 2000;
 
-dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
-dns.resolveSrv("_mongodb._tcp.cluster0.thdyvss.mongodb.net", (err, records) => {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log(records);
-    }
-});
 
 const app = express();
 app.use(cors());
@@ -102,6 +92,25 @@ app.post("/shorten", async (req, res) => {
 
     try {
         const { url, customAlias, password } = req.body;
+        if (!url || url.trim() === "") {
+            return res.status(400).json({
+                error: "Please enter a URL."
+            });
+        }
+
+        let originalUrl = url.trim();
+
+        if (!/^https?:\/\//i.test(originalUrl)) {
+            originalUrl = "https://" + originalUrl;
+        }
+
+        try {
+            new URL(originalUrl);
+        } catch {
+            return res.status(400).json({
+                error: "Please enter a valid URL."
+            });
+        }
 
         let passwordHash = null;
 
@@ -114,6 +123,12 @@ app.post("/shorten", async (req, res) => {
         if (customAlias) {
 
             shortCode = customAlias.trim().toLowerCase();
+            if (shortCode.length < 3 || shortCode.length > 20) {
+                return res.status(400).json({
+                    error: "Alias must be between 3 and 20 characters."
+                });
+            }
+
             if (!/^[a-z0-9_-]+$/.test(shortCode)) {
                 return res.status(400).json({
                     error: "Alias can only contain letters, numbers, hyphens (-), and underscores (_)."
@@ -137,7 +152,7 @@ app.post("/shorten", async (req, res) => {
         }
 
         const newUrl = new Url({
-            originalUrl: url,
+            originalUrl: originalUrl,
             shortCode,
             passwordHash
         });
@@ -150,7 +165,7 @@ app.post("/shorten", async (req, res) => {
         const qrCode = await QRCode.toDataURL(shortUrl);
 
         res.json({
-            originalUrl: url,
+            originalUrl: originalUrl,
             shortCode: shortCode,
             shortUrl: shortUrl,
             qrCode: qrCode,

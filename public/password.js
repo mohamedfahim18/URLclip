@@ -61,3 +61,9 @@ const params = new URLSearchParams(window.location.search);
 const shortCode = params.get("code");
 
 console.log(shortCode);
+
+passwordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        unlockBtn.click();
+    }
+});
