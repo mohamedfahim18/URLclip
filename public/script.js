@@ -32,18 +32,9 @@ button.addEventListener("click", () => {
 
         .then((data) => {
 
-            linkResult.innerHTML = `
-    <a href="${data.shortUrl}"
-    target="_blank"
-    class="short-link">
-    ${data.shortUrl}
-    </a>
-    `;
+            linkResult.innerHTML = `<a href="${data.shortUrl}" target="_blank" class="short-link">${data.shortUrl}</a>`;
 
-            qrResult.innerHTML = `
-    <img src="${data.qrCode}"
-    class="qr-code">
-    `;
+            qrResult.innerHTML = `<img src="${data.qrCode}" class="qr-code">`;
 
         })
 

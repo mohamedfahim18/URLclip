@@ -8,22 +8,8 @@ require("dotenv").config();
 
 const dns = require("node:dns");
 
-dns.setServers(["1.1.1.1", "8.8.8.8"]);
-
-dns.resolveSrv("_mongodb._tcp.cluster0.thdyvss.mongodb.net", (err, records) => {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log(records);
-    }
-});
-
-
-
 
 const PORT = process.env.PORT || 2000;
-
-
 
 const app = express();
 app.use(cors());
