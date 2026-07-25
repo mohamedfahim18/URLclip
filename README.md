@@ -22,8 +22,8 @@ A modern and secure URL Shortener built with **Node.js**, **Express.js**, **Mong
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 
 ### Backend
@@ -69,7 +69,7 @@ URLclip/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/URLclip.git
+git clone https://github.com/mohamedfahim18/URLclip.git
 ```
 
 ### Navigate to the project
@@ -115,7 +115,7 @@ Convert long URLs into short, shareable links.
 Create memorable URLs such as:
 
 ```
-https://yourdomain.com/myportfolio
+https://domain_name.com/alias_name
 ```
 
 ### Password Protection
@@ -136,12 +136,8 @@ Every shortened link automatically includes a QR code for quick sharing.
 
 ## 🌍 Deployment
 
-This project is deployment-ready and can be hosted on platforms like:
+This project is deployed with Render
 
-- Render
-- Railway
-- Vercel (frontend with backend service)
-- Any Node.js hosting provider
 
 Remember to configure the environment variables:
 
@@ -160,7 +156,6 @@ Remember to configure the environment variables:
 - Dashboard for managing URLs
 - REST API
 - Rate limiting
-- Custom QR code styling
 
 ---
 
@@ -177,8 +172,4 @@ Remember to configure the environment variables:
 
 If you found this project helpful, consider giving it a ⭐ on GitHub!
 
----
 
-## 📄 License
-
-This project is licensed under the MIT License.
